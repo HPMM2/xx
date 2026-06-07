@@ -34,7 +34,7 @@ def run_agent(session_id: str, user_message: str) -> str:
     if not api_key:
         raise EnvironmentError("GEMINI_API_KEY is not set.")
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(model_name="gemini-1.5-flash", system_instruction=SYSTEM_PROMPT, tools=GEMINI_TOOLS)
+    model = genai.GenerativeModel(model_name="gemini-2.0-flash", system_instruction=SYSTEM_PROMPT, tools=GEMINI_TOOLS)
     if session_id not in _sessions:
         _sessions[session_id] = []
     chat = model.start_chat(history=_sessions[session_id])
